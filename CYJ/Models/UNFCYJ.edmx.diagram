@@ -4,35 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1b76e5eed25d4bf0bf5bd8620e344684" Name="Diagram1">
-        <EntityTypeShape EntityType="UNFCYJModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.AspNetRole" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.AspNetUser" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.CATEGORY" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.CONNECTION" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.GOAL" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.POST" Width="1.5" PointX="9.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.SUBCATEGORY" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.SUBCATEGORY_GOALS" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.TEAM" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.TEAM_WORKSTREAM" Width="1.5" PointX="10.5" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="UNFCYJModel.WORKSTREAM" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="UNFCYJModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__CATEGORY__workst__24285DB4" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__SUBCATEGO__categ__2704CA5F" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__WORKSTREA__categ__2F9A1060" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__CONNECTIO__goalI__3552E9B6" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__CONNECTIO__teamI__336AA144" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__CONNECTIO__works__345EC57D" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__SUBCATEGO__goalI__29E1370A" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__SUBCATEGO__subca__2AD55B43" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__WORKSTREA__subca__308E3499" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__TEAM_WORK__teamI__2DB1C7EE" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.FK__TEAM_WORK__works__2EA5EC27" ManuallyRouted="false" />
-        <AssociationConnector Association="UNFCYJModel.AspNetUserRoles" ManuallyRouted="false" />
+      <Diagram DiagramId="7321830755ac485e9a70b22180add85e" Name="Diagram1">
+        <EntityTypeShape EntityType="UNFCYJModel.ABOUT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNFCYJModel.CATEGORY" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNFCYJModel.GOALCAT" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNFCYJModel.GOAL" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNFCYJModel.SUBCATEGORY" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNFCYJModel.TEAM" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNFCYJModel.WORKSTREAM" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

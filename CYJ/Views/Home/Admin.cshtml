@@ -5,17 +5,14 @@
 }
 <body>
     <center>
-        <h1> ADMIN</h1>
+        <h1>ADMIN</h1>
         <br />
-        <input type="button" class="button1" value="ADD A GOAL VALUE" onclick="@("window.location.href='" + @Url.Action("Index", "Goal") + "'");" />
-        <br />
-        <br />
-        <input type="button" class="button1" value="ADD A GOAL ACTUAL" onclick="@("window.location.href='" + @Url.Action("Index") + "'");" />
+        <input type="button" class="button1" value="UPDATE GOALS" onclick="@("window.location.href='" + @Url.Action("Index", "GOALs") + "'");" />
         <br />
         <br />
-        <input type="button" class="button1" value="EDIT ABOUT" onclick="@("window.location.href='" + @Url.Action("Index", "About") + "'");" />
+        <input type="button" class="button1" value="EDIT ABOUT" onclick="@("window.location.href='" + @Url.Action("Index", "ABOUTs") + "'");" />
         <br />
         <br />
-        <input type="button" class="button1" value="ADD A NEW ITEM" onclick="@("window.location.href='" + @Url.Action("Index") + "'");" />
+        <input type="button" class="button1" value="ADD A NEW ITEM" onclick="@("window.location.href='" + @Url.Action("Add", "Home") + "'");" />
     </center>
     </body>

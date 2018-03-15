@@ -14,21 +14,14 @@ namespace CYJ.Models
     
     public partial class GOAL
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GOAL()
-        {
-            this.CONNECTIONs = new HashSet<CONNECTION>();
-            this.SUBCATEGORY_GOALS = new HashSet<SUBCATEGORY_GOALS>();
-        }
-    
         public int goalID { get; set; }
-        public string goalName { get; set; }
-        public Nullable<System.DateTime> startDate { get; set; }
-        public Nullable<System.DateTime> endDate { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONNECTION> CONNECTIONs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SUBCATEGORY_GOALS> SUBCATEGORY_GOALS { get; set; }
+        public string period { get; set; }
+        public Nullable<int> actualValue { get; set; }
+        public Nullable<int> goalValue { get; set; }
+        public Nullable<int> fiscalYear { get; set; }
+        public string subcategory { get; set; }
+        public string category { get; set; }
+        public string workstream { get; set; }
+        public string team { get; set; }
     }
 }

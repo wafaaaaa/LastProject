@@ -9,26 +9,20 @@ namespace CYJ.Services
     public class GoalServices
     {
         private readonly UNFCYJEntities _dbContext;
-        
         public GoalServices()
         {
-            _dbContext = new UNFCYJEntities(); //STILL HAVE TO DISPOSE
-        }
-        public List<GOAL> GetAllSubCategories()
-        {
-
-            return _dbContext.GOALs.ToList();
+            _dbContext = new UNFCYJEntities();
         }
 
-        /*public List<GOAL> GetAGoalsList(int subcategID)
+        public List<GOAL> GetAllGoal()
         {
-            _dbContext.Configuration.ProxyCreationEnabled = false;
 
-            return _dbContext.GOALs.Where(x => x.subcategID == subcategID).ToList();
-        }*/
+            return _dbContext.GOALS.ToList();
+        }
+
         public GOAL GetAGoalsById(int id)
         {
-            return _dbContext.GOALs.SingleOrDefault(t => t.goalID == id);
+            return _dbContext.GOALS.SingleOrDefault(t => t.goalID == id);
         }
 
         public void Dispose()
@@ -36,5 +30,6 @@ namespace CYJ.Services
             //Cleanup Resources
             _dbContext.Dispose();
         }
+
     }
 }

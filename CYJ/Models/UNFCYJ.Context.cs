@@ -25,19 +25,12 @@ namespace CYJ.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<ABOUT> ABOUTs { get; set; }
         public virtual DbSet<CATEGORY> CATEGORies { get; set; }
-        public virtual DbSet<CONNECTION> CONNECTIONs { get; set; }
-        public virtual DbSet<GOAL> GOALs { get; set; }
-        public virtual DbSet<POST> POSTs { get; set; }
+        public virtual DbSet<GOALCAT> GOALCATs { get; set; }
+        public virtual DbSet<GOAL> GOALS { get; set; }
         public virtual DbSet<SUBCATEGORY> SUBCATEGORies { get; set; }
-        public virtual DbSet<SUBCATEGORY_GOALS> SUBCATEGORY_GOALS { get; set; }
         public virtual DbSet<TEAM> TEAMs { get; set; }
-        public virtual DbSet<TEAM_WORKSTREAM> TEAM_WORKSTREAM { get; set; }
         public virtual DbSet<WORKSTREAM> WORKSTREAMs { get; set; }
     }
 }

@@ -14,19 +14,7 @@ namespace CYJ.Models
     
     public partial class TEAM
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TEAM()
-        {
-            this.CONNECTIONs = new HashSet<CONNECTION>();
-            this.TEAM_WORKSTREAM = new HashSet<TEAM_WORKSTREAM>();
-        }
-    
         public int teamID { get; set; }
         public string teamName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONNECTION> CONNECTIONs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TEAM_WORKSTREAM> TEAM_WORKSTREAM { get; set; }
     }
 }

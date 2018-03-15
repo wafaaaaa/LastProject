@@ -11,114 +11,97 @@ using CYJ.Models;
 namespace CYJ.Controllers
 {
     [Authorize]
-    public class AboutController : Controller
+    public class GOALsController : Controller
     {
         private UNFCYJEntities db = new UNFCYJEntities();
 
-        // GET: About
+        // GET: GOALs
         public ActionResult Index()
         {
-            return View(db.POSTs.ToList());
+            return View(db.GOALS.ToList());
         }
 
-        // GET: About/Details/5
+        // GET: GOALs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            POST pOST = db.POSTs.Find(id);
-            if (pOST == null)
+            GOAL gOAL = db.GOALS.Find(id);
+            if (gOAL == null)
             {
                 return HttpNotFound();
             }
-            return View(pOST);
+            return View(gOAL);
         }
 
-        // GET: About/Create
+        // GET: GOALs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: About/Create
+        // POST: GOALs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "postID,postTitle,postContent,createTime,updateTime")] POST pOST)
+        public ActionResult Create([Bind(Include = "goalID,period,actualValue,goalValue,fiscalYear,subcategory,category,workstream,team")] GOAL gOAL)
         {
-            if (ModelState.IsValid)
-            {
-                db.POSTs.Add(pOST);
+                db.GOALS.Add(gOAL);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-
-            return View(pOST);
         }
 
-        // GET: About/Edit/5
+        // GET: GOALs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            POST pOST = db.POSTs.Find(id);
-            if (pOST == null)
+            GOAL gOAL = db.GOALS.Find(id);
+            if (gOAL == null)
             {
                 return HttpNotFound();
             }
-            return View(pOST);
+            return View(gOAL);
         }
 
-        // POST: About/Edit/5
+        // POST: GOALs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "postID,postTitle,postContent,createTime,updateTime")] POST pOST)
+        public ActionResult Edit([Bind(Include = "goalID,period,actualValue,goalValue,fiscalYear,subcategory,category,workstream,team")] GOAL gOAL)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(pOST).State = EntityState.Modified;
+                db.Entry(gOAL).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            return View(pOST);
         }
 
-        // GET: About/Delete/5
+        // GET: GOALs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            POST pOST = db.POSTs.Find(id);
-            if (pOST == null)
+            GOAL gOAL = db.GOALS.Find(id);
+            if (gOAL == null)
             {
                 return HttpNotFound();
             }
-            return View(pOST);
+            return View(gOAL);
         }
 
-        // POST: About/Delete/5
+        // POST: GOALs/Delete/5
         [HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            POST pOST = db.POSTs.Find(id);
-            db.POSTs.Remove(pOST);
+            GOAL gOAL = db.GOALS.Find(id);
+            db.GOALS.Remove(gOAL);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public ActionResult Home ()
-        {
-            return View(db.POSTs.ToList());
         }
 
         protected override void Dispose(bool disposing)

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "OpEx";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+<head>
+    <style>
+        .graph {
+            margin-left: 300px;
+        }
+    </style>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            //table 5
+            var data5 = new google.visualization.DataTable();
+            data5.addColumn('string', 'Budget');
+            data5.addColumn('number', 'Expense Management');
+            data5.addColumn('number', 'Net Promoter Score');
+
+            data5.addRows([
+                ['Q1', 10000, 10000],
+                ['Q2', 23432, 12343],
+                ['Q3', 34322, 42344],
+                ['Q4', 64565, 45467]
+            ]);
+
+            // Set chart options 5
+            var options5 = {
+                'title': 'OPEX',
+                'width': 400,
+                'height': 300
+            };
+            // Instantiate and draw our chart, passing in some options.
+
+            var chart5 = new google.visualization.LineChart(document.getElementById('chart_div5'));
+            chart5.draw(data5, options5);
+        }
+
+    </script>
+</head>
+
+<body>
+    <!--Divs that will hold the charts-->
+    <center><h2>OpEx</h2></center>
+    <div class="graph">
+    <br />
+    <table class="columns" style="margin-left:12%">
+        <tr>
+            <td><div id="chart_div5" style="border: 1px solid #ccc"></div></td>
+        </tr>
+    </table>
+        </div>
+</body>

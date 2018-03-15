@@ -14,21 +14,7 @@ namespace CYJ.Models
     
     public partial class SUBCATEGORY
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SUBCATEGORY()
-        {
-            this.SUBCATEGORY_GOALS = new HashSet<SUBCATEGORY_GOALS>();
-            this.WORKSTREAMs = new HashSet<WORKSTREAM>();
-        }
-    
         public int subcategoryID { get; set; }
         public string subcategoryName { get; set; }
-        public Nullable<int> categoryID { get; set; }
-    
-        public virtual CATEGORY CATEGORY { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SUBCATEGORY_GOALS> SUBCATEGORY_GOALS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WORKSTREAM> WORKSTREAMs { get; set; }
     }
 }

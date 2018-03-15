@@ -5,118 +5,47 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="UNFCYJModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
+        <EntityType Name="ABOUT">
           <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
+            <PropertyRef Name="aboutID" />
           </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetRoles">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaims">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ClaimType" Type="nvarchar(max)" />
-          <Property Name="ClaimValue" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogins">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserRoles">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUsers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-          <Property Name="PasswordHash" Type="nvarchar(max)" />
-          <Property Name="SecurityStamp" Type="nvarchar(max)" />
-          <Property Name="PhoneNumber" Type="nvarchar(max)" />
-          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="datetime" />
-          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="aboutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="about" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="CATEGORY">
           <Key>
             <PropertyRef Name="categoryID" />
           </Key>
           <Property Name="categoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="categoryName" Type="varchar" MaxLength="255" />
-          <Property Name="workstreamID" Type="int" />
+          <Property Name="categoryName" Type="varchar" MaxLength="55" />
         </EntityType>
-        <EntityType Name="CONNECTION">
+        <EntityType Name="GOALCAT">
           <Key>
-            <PropertyRef Name="connectionID" />
+            <PropertyRef Name="goalCatID" />
           </Key>
-          <Property Name="connectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="teamID" Type="int" />
-          <Property Name="workstreamID" Type="int" />
-          <Property Name="goalID" Type="int" />
+          <Property Name="goalCatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="goalCat" Type="varchar" MaxLength="55" />
         </EntityType>
-        <EntityType Name="GOAL">
+        <EntityType Name="GOALS">
           <Key>
             <PropertyRef Name="goalID" />
           </Key>
           <Property Name="goalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="goalName" Type="varchar" MaxLength="55" />
-          <Property Name="startDate" Type="date" />
-          <Property Name="endDate" Type="date" />
-        </EntityType>
-        <EntityType Name="POST">
-          <Key>
-            <PropertyRef Name="postID" />
-          </Key>
-          <Property Name="postID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="postTitle" Type="varchar" MaxLength="255" />
-          <Property Name="postContent" Type="varchar" MaxLength="255" />
-          <Property Name="createTime" Type="date" />
-          <Property Name="updateTime" Type="date" />
+          <Property Name="period" Type="varchar" MaxLength="55" />
+          <Property Name="actualValue" Type="int" />
+          <Property Name="goalValue" Type="int" />
+          <Property Name="fiscalYear" Type="int" />
+          <Property Name="subcategory" Type="varchar" MaxLength="200" />
+          <Property Name="category" Type="varchar" MaxLength="200" />
+          <Property Name="workstream" Type="varchar" MaxLength="100" />
+          <Property Name="team" Type="varchar" MaxLength="60" />
         </EntityType>
         <EntityType Name="SUBCATEGORY">
           <Key>
             <PropertyRef Name="subcategoryID" />
           </Key>
           <Property Name="subcategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="subcategoryName" Type="varchar" MaxLength="255" />
-          <Property Name="categoryID" Type="int" />
-        </EntityType>
-        <EntityType Name="SUBCATEGORY_GOALS">
-          <Key>
-            <PropertyRef Name="subcategory_goalsID" />
-          </Key>
-          <Property Name="subcategory_goalsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="goalID" Type="int" />
-          <Property Name="subcategoryID" Type="int" />
+          <Property Name="subcategoryName" Type="varchar" MaxLength="55" />
         </EntityType>
         <EntityType Name="TEAM">
           <Key>
@@ -125,416 +54,68 @@
           <Property Name="teamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="teamName" Type="varchar" MaxLength="55" />
         </EntityType>
-        <EntityType Name="TEAM_WORKSTREAM">
-          <Key>
-            <PropertyRef Name="team_workstreamID" />
-          </Key>
-          <Property Name="team_workstreamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="teamID" Type="int" />
-          <Property Name="workstreamID" Type="int" />
-        </EntityType>
         <EntityType Name="WORKSTREAM">
           <Key>
             <PropertyRef Name="workstreamID" />
           </Key>
           <Property Name="workstreamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="workstreamName" Type="varchar(max)" />
-          <Property Name="categoryID" Type="int" />
-          <Property Name="subcategoryID" Type="int" />
+          <Property Name="workstreamName" Type="varchar" MaxLength="60" />
         </EntityType>
-        <Association Name="FK__CATEGORY__workst__24285DB4">
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="0..1" />
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WORKSTREAM">
-              <PropertyRef Name="workstreamID" />
-            </Principal>
-            <Dependent Role="CATEGORY">
-              <PropertyRef Name="workstreamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CONNECTIO__goalI__3552E9B6">
-          <End Role="GOAL" Type="Self.GOAL" Multiplicity="0..1" />
-          <End Role="CONNECTION" Type="Self.CONNECTION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GOAL">
-              <PropertyRef Name="goalID" />
-            </Principal>
-            <Dependent Role="CONNECTION">
-              <PropertyRef Name="goalID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CONNECTIO__teamI__336AA144">
-          <End Role="TEAM" Type="Self.TEAM" Multiplicity="0..1" />
-          <End Role="CONNECTION" Type="Self.CONNECTION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TEAM">
-              <PropertyRef Name="teamID" />
-            </Principal>
-            <Dependent Role="CONNECTION">
-              <PropertyRef Name="teamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CONNECTIO__works__345EC57D">
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="0..1" />
-          <End Role="CONNECTION" Type="Self.CONNECTION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WORKSTREAM">
-              <PropertyRef Name="workstreamID" />
-            </Principal>
-            <Dependent Role="CONNECTION">
-              <PropertyRef Name="workstreamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SUBCATEGO__categ__2704CA5F">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
-          <End Role="SUBCATEGORY" Type="Self.SUBCATEGORY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY">
-              <PropertyRef Name="categoryID" />
-            </Principal>
-            <Dependent Role="SUBCATEGORY">
-              <PropertyRef Name="categoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SUBCATEGO__goalI__29E1370A">
-          <End Role="GOAL" Type="Self.GOAL" Multiplicity="0..1" />
-          <End Role="SUBCATEGORY_GOALS" Type="Self.SUBCATEGORY_GOALS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GOAL">
-              <PropertyRef Name="goalID" />
-            </Principal>
-            <Dependent Role="SUBCATEGORY_GOALS">
-              <PropertyRef Name="goalID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SUBCATEGO__subca__2AD55B43">
-          <End Role="SUBCATEGORY" Type="Self.SUBCATEGORY" Multiplicity="0..1" />
-          <End Role="SUBCATEGORY_GOALS" Type="Self.SUBCATEGORY_GOALS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SUBCATEGORY">
-              <PropertyRef Name="subcategoryID" />
-            </Principal>
-            <Dependent Role="SUBCATEGORY_GOALS">
-              <PropertyRef Name="subcategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TEAM_WORK__teamI__2DB1C7EE">
-          <End Role="TEAM" Type="Self.TEAM" Multiplicity="0..1" />
-          <End Role="TEAM_WORKSTREAM" Type="Self.TEAM_WORKSTREAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TEAM">
-              <PropertyRef Name="teamID" />
-            </Principal>
-            <Dependent Role="TEAM_WORKSTREAM">
-              <PropertyRef Name="teamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TEAM_WORK__works__2EA5EC27">
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="0..1" />
-          <End Role="TEAM_WORKSTREAM" Type="Self.TEAM_WORKSTREAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WORKSTREAM">
-              <PropertyRef Name="workstreamID" />
-            </Principal>
-            <Dependent Role="TEAM_WORKSTREAM">
-              <PropertyRef Name="workstreamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__WORKSTREA__categ__2F9A1060">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY">
-              <PropertyRef Name="categoryID" />
-            </Principal>
-            <Dependent Role="WORKSTREAM">
-              <PropertyRef Name="categoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__WORKSTREA__subca__308E3499">
-          <End Role="SUBCATEGORY" Type="Self.SUBCATEGORY" Multiplicity="0..1" />
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SUBCATEGORY">
-              <PropertyRef Name="subcategoryID" />
-            </Principal>
-            <Dependent Role="WORKSTREAM">
-              <PropertyRef Name="subcategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetRoles">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="UNFCYJModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ABOUT" EntityType="Self.ABOUT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CONNECTION" EntityType="Self.CONNECTION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GOAL" EntityType="Self.GOAL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="POST" EntityType="Self.POST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GOALCAT" EntityType="Self.GOALCAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GOALS" EntityType="Self.GOALS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SUBCATEGORY" EntityType="Self.SUBCATEGORY" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SUBCATEGORY_GOALS" EntityType="Self.SUBCATEGORY_GOALS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TEAM" EntityType="Self.TEAM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TEAM_WORKSTREAM" EntityType="Self.TEAM_WORKSTREAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WORKSTREAM" EntityType="Self.WORKSTREAM" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CATEGORY__workst__24285DB4" Association="Self.FK__CATEGORY__workst__24285DB4">
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAM" />
-            <End Role="CATEGORY" EntitySet="CATEGORY" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CONNECTIO__goalI__3552E9B6" Association="Self.FK__CONNECTIO__goalI__3552E9B6">
-            <End Role="GOAL" EntitySet="GOAL" />
-            <End Role="CONNECTION" EntitySet="CONNECTION" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CONNECTIO__teamI__336AA144" Association="Self.FK__CONNECTIO__teamI__336AA144">
-            <End Role="TEAM" EntitySet="TEAM" />
-            <End Role="CONNECTION" EntitySet="CONNECTION" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CONNECTIO__works__345EC57D" Association="Self.FK__CONNECTIO__works__345EC57D">
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAM" />
-            <End Role="CONNECTION" EntitySet="CONNECTION" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SUBCATEGO__categ__2704CA5F" Association="Self.FK__SUBCATEGO__categ__2704CA5F">
-            <End Role="CATEGORY" EntitySet="CATEGORY" />
-            <End Role="SUBCATEGORY" EntitySet="SUBCATEGORY" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SUBCATEGO__goalI__29E1370A" Association="Self.FK__SUBCATEGO__goalI__29E1370A">
-            <End Role="GOAL" EntitySet="GOAL" />
-            <End Role="SUBCATEGORY_GOALS" EntitySet="SUBCATEGORY_GOALS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SUBCATEGO__subca__2AD55B43" Association="Self.FK__SUBCATEGO__subca__2AD55B43">
-            <End Role="SUBCATEGORY" EntitySet="SUBCATEGORY" />
-            <End Role="SUBCATEGORY_GOALS" EntitySet="SUBCATEGORY_GOALS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TEAM_WORK__teamI__2DB1C7EE" Association="Self.FK__TEAM_WORK__teamI__2DB1C7EE">
-            <End Role="TEAM" EntitySet="TEAM" />
-            <End Role="TEAM_WORKSTREAM" EntitySet="TEAM_WORKSTREAM" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TEAM_WORK__works__2EA5EC27" Association="Self.FK__TEAM_WORK__works__2EA5EC27">
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAM" />
-            <End Role="TEAM_WORKSTREAM" EntitySet="TEAM_WORKSTREAM" />
-          </AssociationSet>
-          <AssociationSet Name="FK__WORKSTREA__categ__2F9A1060" Association="Self.FK__WORKSTREA__categ__2F9A1060">
-            <End Role="CATEGORY" EntitySet="CATEGORY" />
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAM" />
-          </AssociationSet>
-          <AssociationSet Name="FK__WORKSTREA__subca__308E3499" Association="Self.FK__WORKSTREA__subca__308E3499">
-            <End Role="SUBCATEGORY" EntitySet="SUBCATEGORY" />
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAM" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UNFCYJModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="C__MigrationHistory">
+        <EntityType Name="ABOUT">
           <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
+            <PropertyRef Name="aboutID" />
           </Key>
-          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetRole">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaim">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogin">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
-        </EntityType>
-        <EntityType Name="AspNetUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="aboutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="about1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="CATEGORY">
           <Key>
             <PropertyRef Name="categoryID" />
           </Key>
           <Property Name="categoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="categoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="workstreamID" Type="Int32" />
-          <NavigationProperty Name="WORKSTREAM" Relationship="Self.FK__CATEGORY__workst__24285DB4" FromRole="CATEGORY" ToRole="WORKSTREAM" />
-          <NavigationProperty Name="SUBCATEGORies" Relationship="Self.FK__SUBCATEGO__categ__2704CA5F" FromRole="CATEGORY" ToRole="SUBCATEGORY" />
-          <NavigationProperty Name="WORKSTREAMs" Relationship="Self.FK__WORKSTREA__categ__2F9A1060" FromRole="CATEGORY" ToRole="WORKSTREAM" />
+          <Property Name="categoryName" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="CONNECTION">
+        <EntityType Name="GOALCAT">
           <Key>
-            <PropertyRef Name="connectionID" />
+            <PropertyRef Name="goalCatID" />
           </Key>
-          <Property Name="connectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="teamID" Type="Int32" />
-          <Property Name="workstreamID" Type="Int32" />
-          <Property Name="goalID" Type="Int32" />
-          <NavigationProperty Name="GOAL" Relationship="Self.FK__CONNECTIO__goalI__3552E9B6" FromRole="CONNECTION" ToRole="GOAL" />
-          <NavigationProperty Name="TEAM" Relationship="Self.FK__CONNECTIO__teamI__336AA144" FromRole="CONNECTION" ToRole="TEAM" />
-          <NavigationProperty Name="WORKSTREAM" Relationship="Self.FK__CONNECTIO__works__345EC57D" FromRole="CONNECTION" ToRole="WORKSTREAM" />
+          <Property Name="goalCatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="goalCat1" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="GOAL">
           <Key>
             <PropertyRef Name="goalID" />
           </Key>
           <Property Name="goalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="goalName" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
-          <Property Name="startDate" Type="DateTime" Precision="0" />
-          <Property Name="endDate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="CONNECTIONs" Relationship="Self.FK__CONNECTIO__goalI__3552E9B6" FromRole="GOAL" ToRole="CONNECTION" />
-          <NavigationProperty Name="SUBCATEGORY_GOALS" Relationship="Self.FK__SUBCATEGO__goalI__29E1370A" FromRole="GOAL" ToRole="SUBCATEGORY_GOALS" />
-        </EntityType>
-        <EntityType Name="POST">
-          <Key>
-            <PropertyRef Name="postID" />
-          </Key>
-          <Property Name="postID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="postTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="postContent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="createTime" Type="DateTime" Precision="0" />
-          <Property Name="updateTime" Type="DateTime" Precision="0" />
+          <Property Name="period" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="actualValue" Type="Int32" />
+          <Property Name="goalValue" Type="Int32" />
+          <Property Name="fiscalYear" Type="Int32" />
+          <Property Name="subcategory" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="workstream" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="team" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SUBCATEGORY">
           <Key>
             <PropertyRef Name="subcategoryID" />
           </Key>
           <Property Name="subcategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="subcategoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="categoryID" Type="Int32" />
-          <NavigationProperty Name="CATEGORY" Relationship="Self.FK__SUBCATEGO__categ__2704CA5F" FromRole="SUBCATEGORY" ToRole="CATEGORY" />
-          <NavigationProperty Name="SUBCATEGORY_GOALS" Relationship="Self.FK__SUBCATEGO__subca__2AD55B43" FromRole="SUBCATEGORY" ToRole="SUBCATEGORY_GOALS" />
-          <NavigationProperty Name="WORKSTREAMs" Relationship="Self.FK__WORKSTREA__subca__308E3499" FromRole="SUBCATEGORY" ToRole="WORKSTREAM" />
-        </EntityType>
-        <EntityType Name="SUBCATEGORY_GOALS">
-          <Key>
-            <PropertyRef Name="subcategory_goalsID" />
-          </Key>
-          <Property Name="subcategory_goalsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="goalID" Type="Int32" />
-          <Property Name="subcategoryID" Type="Int32" />
-          <NavigationProperty Name="GOAL" Relationship="Self.FK__SUBCATEGO__goalI__29E1370A" FromRole="SUBCATEGORY_GOALS" ToRole="GOAL" />
-          <NavigationProperty Name="SUBCATEGORY" Relationship="Self.FK__SUBCATEGO__subca__2AD55B43" FromRole="SUBCATEGORY_GOALS" ToRole="SUBCATEGORY" />
+          <Property Name="subcategoryName" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TEAM">
           <Key>
@@ -542,268 +123,22 @@
           </Key>
           <Property Name="teamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="teamName" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CONNECTIONs" Relationship="Self.FK__CONNECTIO__teamI__336AA144" FromRole="TEAM" ToRole="CONNECTION" />
-          <NavigationProperty Name="TEAM_WORKSTREAM" Relationship="Self.FK__TEAM_WORK__teamI__2DB1C7EE" FromRole="TEAM" ToRole="TEAM_WORKSTREAM" />
-        </EntityType>
-        <EntityType Name="TEAM_WORKSTREAM">
-          <Key>
-            <PropertyRef Name="team_workstreamID" />
-          </Key>
-          <Property Name="team_workstreamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="teamID" Type="Int32" />
-          <Property Name="workstreamID" Type="Int32" />
-          <NavigationProperty Name="TEAM" Relationship="Self.FK__TEAM_WORK__teamI__2DB1C7EE" FromRole="TEAM_WORKSTREAM" ToRole="TEAM" />
-          <NavigationProperty Name="WORKSTREAM" Relationship="Self.FK__TEAM_WORK__works__2EA5EC27" FromRole="TEAM_WORKSTREAM" ToRole="WORKSTREAM" />
         </EntityType>
         <EntityType Name="WORKSTREAM">
           <Key>
             <PropertyRef Name="workstreamID" />
           </Key>
           <Property Name="workstreamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="workstreamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="categoryID" Type="Int32" />
-          <Property Name="subcategoryID" Type="Int32" />
-          <NavigationProperty Name="CATEGORies" Relationship="Self.FK__CATEGORY__workst__24285DB4" FromRole="WORKSTREAM" ToRole="CATEGORY" />
-          <NavigationProperty Name="CATEGORY" Relationship="Self.FK__WORKSTREA__categ__2F9A1060" FromRole="WORKSTREAM" ToRole="CATEGORY" />
-          <NavigationProperty Name="CONNECTIONs" Relationship="Self.FK__CONNECTIO__works__345EC57D" FromRole="WORKSTREAM" ToRole="CONNECTION" />
-          <NavigationProperty Name="SUBCATEGORY" Relationship="Self.FK__WORKSTREA__subca__308E3499" FromRole="WORKSTREAM" ToRole="SUBCATEGORY" />
-          <NavigationProperty Name="TEAM_WORKSTREAM" Relationship="Self.FK__TEAM_WORK__works__2EA5EC27" FromRole="WORKSTREAM" ToRole="TEAM_WORKSTREAM" />
+          <Property Name="workstreamName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CATEGORY__workst__24285DB4">
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="0..1" />
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WORKSTREAM">
-              <PropertyRef Name="workstreamID" />
-            </Principal>
-            <Dependent Role="CATEGORY">
-              <PropertyRef Name="workstreamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SUBCATEGO__categ__2704CA5F">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
-          <End Role="SUBCATEGORY" Type="Self.SUBCATEGORY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY">
-              <PropertyRef Name="categoryID" />
-            </Principal>
-            <Dependent Role="SUBCATEGORY">
-              <PropertyRef Name="categoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__WORKSTREA__categ__2F9A1060">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY">
-              <PropertyRef Name="categoryID" />
-            </Principal>
-            <Dependent Role="WORKSTREAM">
-              <PropertyRef Name="categoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CONNECTIO__goalI__3552E9B6">
-          <End Role="GOAL" Type="Self.GOAL" Multiplicity="0..1" />
-          <End Role="CONNECTION" Type="Self.CONNECTION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GOAL">
-              <PropertyRef Name="goalID" />
-            </Principal>
-            <Dependent Role="CONNECTION">
-              <PropertyRef Name="goalID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CONNECTIO__teamI__336AA144">
-          <End Role="TEAM" Type="Self.TEAM" Multiplicity="0..1" />
-          <End Role="CONNECTION" Type="Self.CONNECTION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TEAM">
-              <PropertyRef Name="teamID" />
-            </Principal>
-            <Dependent Role="CONNECTION">
-              <PropertyRef Name="teamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CONNECTIO__works__345EC57D">
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="0..1" />
-          <End Role="CONNECTION" Type="Self.CONNECTION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WORKSTREAM">
-              <PropertyRef Name="workstreamID" />
-            </Principal>
-            <Dependent Role="CONNECTION">
-              <PropertyRef Name="workstreamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SUBCATEGO__goalI__29E1370A">
-          <End Role="GOAL" Type="Self.GOAL" Multiplicity="0..1" />
-          <End Role="SUBCATEGORY_GOALS" Type="Self.SUBCATEGORY_GOALS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GOAL">
-              <PropertyRef Name="goalID" />
-            </Principal>
-            <Dependent Role="SUBCATEGORY_GOALS">
-              <PropertyRef Name="goalID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SUBCATEGO__subca__2AD55B43">
-          <End Role="SUBCATEGORY" Type="Self.SUBCATEGORY" Multiplicity="0..1" />
-          <End Role="SUBCATEGORY_GOALS" Type="Self.SUBCATEGORY_GOALS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SUBCATEGORY">
-              <PropertyRef Name="subcategoryID" />
-            </Principal>
-            <Dependent Role="SUBCATEGORY_GOALS">
-              <PropertyRef Name="subcategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__WORKSTREA__subca__308E3499">
-          <End Role="SUBCATEGORY" Type="Self.SUBCATEGORY" Multiplicity="0..1" />
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SUBCATEGORY">
-              <PropertyRef Name="subcategoryID" />
-            </Principal>
-            <Dependent Role="WORKSTREAM">
-              <PropertyRef Name="subcategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TEAM_WORK__teamI__2DB1C7EE">
-          <End Role="TEAM" Type="Self.TEAM" Multiplicity="0..1" />
-          <End Role="TEAM_WORKSTREAM" Type="Self.TEAM_WORKSTREAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TEAM">
-              <PropertyRef Name="teamID" />
-            </Principal>
-            <Dependent Role="TEAM_WORKSTREAM">
-              <PropertyRef Name="teamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TEAM_WORK__works__2EA5EC27">
-          <End Role="WORKSTREAM" Type="Self.WORKSTREAM" Multiplicity="0..1" />
-          <End Role="TEAM_WORKSTREAM" Type="Self.TEAM_WORKSTREAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WORKSTREAM">
-              <PropertyRef Name="workstreamID" />
-            </Principal>
-            <Dependent Role="TEAM_WORKSTREAM">
-              <PropertyRef Name="workstreamID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AspNetUserRoles">
-          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="UNFCYJEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="ABOUTs" EntityType="Self.ABOUT" />
           <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
-          <EntitySet Name="CONNECTIONs" EntityType="Self.CONNECTION" />
-          <EntitySet Name="GOALs" EntityType="Self.GOAL" />
-          <EntitySet Name="POSTs" EntityType="Self.POST" />
+          <EntitySet Name="GOALCATs" EntityType="Self.GOALCAT" />
+          <EntitySet Name="GOALS" EntityType="Self.GOAL" />
           <EntitySet Name="SUBCATEGORies" EntityType="Self.SUBCATEGORY" />
-          <EntitySet Name="SUBCATEGORY_GOALS" EntityType="Self.SUBCATEGORY_GOALS" />
           <EntitySet Name="TEAMs" EntityType="Self.TEAM" />
-          <EntitySet Name="TEAM_WORKSTREAM" EntityType="Self.TEAM_WORKSTREAM" />
           <EntitySet Name="WORKSTREAMs" EntityType="Self.WORKSTREAM" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CATEGORY__workst__24285DB4" Association="Self.FK__CATEGORY__workst__24285DB4">
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAMs" />
-            <End Role="CATEGORY" EntitySet="CATEGORies" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SUBCATEGO__categ__2704CA5F" Association="Self.FK__SUBCATEGO__categ__2704CA5F">
-            <End Role="CATEGORY" EntitySet="CATEGORies" />
-            <End Role="SUBCATEGORY" EntitySet="SUBCATEGORies" />
-          </AssociationSet>
-          <AssociationSet Name="FK__WORKSTREA__categ__2F9A1060" Association="Self.FK__WORKSTREA__categ__2F9A1060">
-            <End Role="CATEGORY" EntitySet="CATEGORies" />
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAMs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CONNECTIO__goalI__3552E9B6" Association="Self.FK__CONNECTIO__goalI__3552E9B6">
-            <End Role="GOAL" EntitySet="GOALs" />
-            <End Role="CONNECTION" EntitySet="CONNECTIONs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CONNECTIO__teamI__336AA144" Association="Self.FK__CONNECTIO__teamI__336AA144">
-            <End Role="TEAM" EntitySet="TEAMs" />
-            <End Role="CONNECTION" EntitySet="CONNECTIONs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CONNECTIO__works__345EC57D" Association="Self.FK__CONNECTIO__works__345EC57D">
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAMs" />
-            <End Role="CONNECTION" EntitySet="CONNECTIONs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SUBCATEGO__goalI__29E1370A" Association="Self.FK__SUBCATEGO__goalI__29E1370A">
-            <End Role="GOAL" EntitySet="GOALs" />
-            <End Role="SUBCATEGORY_GOALS" EntitySet="SUBCATEGORY_GOALS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SUBCATEGO__subca__2AD55B43" Association="Self.FK__SUBCATEGO__subca__2AD55B43">
-            <End Role="SUBCATEGORY" EntitySet="SUBCATEGORies" />
-            <End Role="SUBCATEGORY_GOALS" EntitySet="SUBCATEGORY_GOALS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__WORKSTREA__subca__308E3499" Association="Self.FK__WORKSTREA__subca__308E3499">
-            <End Role="SUBCATEGORY" EntitySet="SUBCATEGORies" />
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAMs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TEAM_WORK__teamI__2DB1C7EE" Association="Self.FK__TEAM_WORK__teamI__2DB1C7EE">
-            <End Role="TEAM" EntitySet="TEAMs" />
-            <End Role="TEAM_WORKSTREAM" EntitySet="TEAM_WORKSTREAM" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TEAM_WORK__works__2EA5EC27" Association="Self.FK__TEAM_WORK__works__2EA5EC27">
-            <End Role="WORKSTREAM" EntitySet="WORKSTREAMs" />
-            <End Role="TEAM_WORKSTREAM" EntitySet="TEAM_WORKSTREAM" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -811,58 +146,11 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="UNFCYJModelStoreContainer" CdmEntityContainer="UNFCYJEntities">
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="UNFCYJModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="UNFCYJModel.AspNetRole">
-              <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="UNFCYJModel.AspNetUserClaim">
-              <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="UNFCYJModel.AspNetUserLogin">
-              <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="UNFCYJModel.AspNetUser">
-              <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <EntitySetMapping Name="ABOUTs">
+            <EntityTypeMapping TypeName="UNFCYJModel.ABOUT">
+              <MappingFragment StoreEntitySet="ABOUT">
+                <ScalarProperty Name="aboutID" ColumnName="aboutID" />
+                <ScalarProperty Name="about1" ColumnName="about" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -871,38 +159,29 @@
               <MappingFragment StoreEntitySet="CATEGORY">
                 <ScalarProperty Name="categoryID" ColumnName="categoryID" />
                 <ScalarProperty Name="categoryName" ColumnName="categoryName" />
-                <ScalarProperty Name="workstreamID" ColumnName="workstreamID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CONNECTIONs">
-            <EntityTypeMapping TypeName="UNFCYJModel.CONNECTION">
-              <MappingFragment StoreEntitySet="CONNECTION">
-                <ScalarProperty Name="connectionID" ColumnName="connectionID" />
-                <ScalarProperty Name="teamID" ColumnName="teamID" />
-                <ScalarProperty Name="workstreamID" ColumnName="workstreamID" />
-                <ScalarProperty Name="goalID" ColumnName="goalID" />
+          <EntitySetMapping Name="GOALCATs">
+            <EntityTypeMapping TypeName="UNFCYJModel.GOALCAT">
+              <MappingFragment StoreEntitySet="GOALCAT">
+                <ScalarProperty Name="goalCatID" ColumnName="goalCatID" />
+                <ScalarProperty Name="goalCat1" ColumnName="goalCat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GOALs">
+          <EntitySetMapping Name="GOALS">
             <EntityTypeMapping TypeName="UNFCYJModel.GOAL">
-              <MappingFragment StoreEntitySet="GOAL">
+              <MappingFragment StoreEntitySet="GOALS">
                 <ScalarProperty Name="goalID" ColumnName="goalID" />
-                <ScalarProperty Name="goalName" ColumnName="goalName" />
-                <ScalarProperty Name="startDate" ColumnName="startDate" />
-                <ScalarProperty Name="endDate" ColumnName="endDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="POSTs">
-            <EntityTypeMapping TypeName="UNFCYJModel.POST">
-              <MappingFragment StoreEntitySet="POST">
-                <ScalarProperty Name="postID" ColumnName="postID" />
-                <ScalarProperty Name="postTitle" ColumnName="postTitle" />
-                <ScalarProperty Name="postContent" ColumnName="postContent" />
-                <ScalarProperty Name="createTime" ColumnName="createTime" />
-                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="period" ColumnName="period" />
+                <ScalarProperty Name="actualValue" ColumnName="actualValue" />
+                <ScalarProperty Name="goalValue" ColumnName="goalValue" />
+                <ScalarProperty Name="fiscalYear" ColumnName="fiscalYear" />
+                <ScalarProperty Name="subcategory" ColumnName="subcategory" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="workstream" ColumnName="workstream" />
+                <ScalarProperty Name="team" ColumnName="team" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -911,16 +190,6 @@
               <MappingFragment StoreEntitySet="SUBCATEGORY">
                 <ScalarProperty Name="subcategoryID" ColumnName="subcategoryID" />
                 <ScalarProperty Name="subcategoryName" ColumnName="subcategoryName" />
-                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SUBCATEGORY_GOALS">
-            <EntityTypeMapping TypeName="UNFCYJModel.SUBCATEGORY_GOALS">
-              <MappingFragment StoreEntitySet="SUBCATEGORY_GOALS">
-                <ScalarProperty Name="subcategory_goalsID" ColumnName="subcategory_goalsID" />
-                <ScalarProperty Name="goalID" ColumnName="goalID" />
-                <ScalarProperty Name="subcategoryID" ColumnName="subcategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -932,33 +201,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TEAM_WORKSTREAM">
-            <EntityTypeMapping TypeName="UNFCYJModel.TEAM_WORKSTREAM">
-              <MappingFragment StoreEntitySet="TEAM_WORKSTREAM">
-                <ScalarProperty Name="team_workstreamID" ColumnName="team_workstreamID" />
-                <ScalarProperty Name="teamID" ColumnName="teamID" />
-                <ScalarProperty Name="workstreamID" ColumnName="workstreamID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="WORKSTREAMs">
             <EntityTypeMapping TypeName="UNFCYJModel.WORKSTREAM">
               <MappingFragment StoreEntitySet="WORKSTREAM">
                 <ScalarProperty Name="workstreamID" ColumnName="workstreamID" />
                 <ScalarProperty Name="workstreamName" ColumnName="workstreamName" />
-                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
-                <ScalarProperty Name="subcategoryID" ColumnName="subcategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="UNFCYJModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetRoles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-            <EndProperty Name="AspNetUsers">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

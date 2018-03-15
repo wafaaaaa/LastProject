@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Service Delivery";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+<head>
+    <style>
+        .graph{
+            margin-left:300px;
+        }
+    </style>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            //create the table 3
+            var data3 = new google.visualization.DataTable();
+            data3.addColumn('string', 'Quarter');
+            data3.addColumn('number', 'Actual');
+            data3.addColumn('number', 'Current');
+
+            data3.addRows([
+                ['Q1', 900, 300],
+                ['Q2', 1200, 600],
+                ['Q3', 800, 300],
+                ['Q4', 1100, 550]
+            ]);
+            // Set chart options 3
+            var options3 = {
+                'title': 'MATH',
+                'width': 500,
+                'height': 300
+            };
+            // Instantiate and draw our chart, passing in some options.
+            var chart3 = new google.visualization.LineChart(document.getElementById('chart_div3'));
+            chart3.draw(data3, options3);
+        }
+
+    </script>
+</head>
+
+<body><center>
+    <h2>Service Delivery</h2></center>
+    <!--Divs that will hold the charts-->
+    <br />
+    <div class="graph">
+    <table class="columns" style="margin-left:12%">
+        <tr>
+            <td><div id="chart_div3" style="border: 1px solid #ccc"></div></td>
+        </tr>
+    </table>
+        </div>
+</body>
+

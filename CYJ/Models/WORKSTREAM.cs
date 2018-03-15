@@ -14,26 +14,7 @@ namespace CYJ.Models
     
     public partial class WORKSTREAM
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public WORKSTREAM()
-        {
-            this.CATEGORies = new HashSet<CATEGORY>();
-            this.CONNECTIONs = new HashSet<CONNECTION>();
-            this.TEAM_WORKSTREAM = new HashSet<TEAM_WORKSTREAM>();
-        }
-    
         public int workstreamID { get; set; }
         public string workstreamName { get; set; }
-        public Nullable<int> categoryID { get; set; }
-        public Nullable<int> subcategoryID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CATEGORY> CATEGORies { get; set; }
-        public virtual CATEGORY CATEGORY { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONNECTION> CONNECTIONs { get; set; }
-        public virtual SUBCATEGORY SUBCATEGORY { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TEAM_WORKSTREAM> TEAM_WORKSTREAM { get; set; }
     }
 }

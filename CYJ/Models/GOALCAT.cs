@@ -12,12 +12,9 @@ namespace CYJ.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class POST
+    public partial class GOALCAT
     {
-        public int postID { get; set; }
-        public string postTitle { get; set; }
-        public string postContent { get; set; }
-        public Nullable<System.DateTime> createTime { get; set; }
-        public Nullable<System.DateTime> updateTime { get; set; }
+        public int goalCatID { get; set; }
+        public string goalCat1 { get; set; }
     }
 }

@@ -12,20 +12,14 @@ namespace CYJ.Services
 
         public CategoryServices()
         {
-            _dbContext = new UNFCYJEntities(); //STILL HAVE TO DISPOSE
+            _dbContext = new UNFCYJEntities();
         }
+
         public List<CATEGORY> GetAllCategories()
         {
-            
+
             return _dbContext.CATEGORies.ToList();
         }
-
-        /*public List<CATEGORY> GetCategoriesList(int wstreamID)
-        {
-            _dbContext.Configuration.ProxyCreationEnabled = false;
-
-            return _dbContext.CATEGORies.Where(x => x.wstreamID == wstreamID).ToList();
-        }*/
         public CATEGORY GetCategoryById(int id)
         {
             return _dbContext.CATEGORies.SingleOrDefault(t => t.categoryID == id);
@@ -36,5 +30,6 @@ namespace CYJ.Services
             //Cleanup Resources
             _dbContext.Dispose();
         }
+
     }
 }
