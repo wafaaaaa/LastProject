@@ -245,9 +245,15 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\about_edit.png" />
+    <Content Include="Content\Images\add_item.png" />
+    <Content Include="Content\Images\citysidebar.jpg" />
     <Content Include="Content\Images\CITYYEARLOGO.png" />
     <Content Include="Content\Images\cityyearregister.png" />
+    <Content Include="Content\Images\goal_add.png" />
+    <Content Include="Content\Images\goal_value.png" />
     <Content Include="Content\Images\jacksonvillepanorama.jpg" />
+    <Content Include="Content\Images\sidebarcyj.jpg" />
     <Content Include="Content\mytemplate\css\bootstrap.min.css" />
     <Content Include="Content\mytemplate\css\demo.css" />
     <Content Include="Content\mytemplate\css\material-dashboard.css" />
