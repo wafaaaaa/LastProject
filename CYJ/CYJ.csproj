@@ -688,11 +688,6 @@
     <Content Include="Views\Shared\_mytemplate.cshtml" />
     <Content Include="Views\Shared\_dashboard.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
-    <Content Include="Views\ABOUTs\Create.cshtml" />
-    <Content Include="Views\ABOUTs\Delete.cshtml" />
-    <Content Include="Views\ABOUTs\Edit.cshtml" />
-    <Content Include="Views\ABOUTs\Index.cshtml" />
-    <Content Include="Views\ABOUTs\Home.cshtml" />
     <Content Include="Views\Home\Add.cshtml" />
     <Content Include="Views\AddItem\NewTeam.cshtml" />
     <Content Include="Views\Home\Added.cshtml" />
@@ -708,9 +703,6 @@
     <Content Include="Views\SUBCATEGORies\Create.cshtml" />
     <Content Include="Views\SUBCATEGORies\Edit.cshtml" />
     <Content Include="Views\SUBCATEGORies\Index.cshtml" />
-    <Content Include="Views\GOALs1\Create.cshtml" />
-    <Content Include="Views\GOALs1\Edit.cshtml" />
-    <Content Include="Views\GOALs1\Index.cshtml" />
     <Content Include="Views\Home\ServiceDelivery.cshtml" />
     <Content Include="Views\Home\CorpMemberExperience.cshtml" />
     <Content Include="Views\Home\ExternalAffairs.cshtml" />
@@ -722,6 +714,19 @@
     <Content Include="Views\GOALs\Details.cshtml" />
     <Content Include="Views\GOALs\Edit.cshtml" />
     <Content Include="Views\GOALs\Index.cshtml" />
+    <Content Include="Views\ABOUTs\Create.cshtml" />
+    <Content Include="Views\ABOUTs\Delete.cshtml" />
+    <Content Include="Views\ABOUTs\Edit.cshtml" />
+    <Content Include="Views\ABOUTs\Index.cshtml" />
+    <Content Include="Views\ABOUTs\Home.cshtml" />
+    <Content Include="Views\GOALs1\Create.cshtml" />
+    <Content Include="Views\GOALs1\Delete.cshtml" />
+    <Content Include="Views\GOALs1\Details.cshtml" />
+    <Content Include="Views\GOALs1\Edit.cshtml" />
+    <Content Include="Views\GOALs1\Index.cshtml" />
+    <Content Include="Views\GOALs\FilterPeriod.cshtml" />
+    <Content Include="Views\GOALs\FilterWorkstream.cshtml" />
+    <Content Include="Views\GOALs\FilterFY.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

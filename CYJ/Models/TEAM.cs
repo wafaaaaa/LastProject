@@ -11,10 +11,12 @@ namespace CYJ.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TEAM
     {
         public int teamID { get; set; }
+        [Display(Name = "Team")]
         public string teamName { get; set; }
     }
 }

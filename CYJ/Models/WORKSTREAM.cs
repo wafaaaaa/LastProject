@@ -11,10 +11,12 @@ namespace CYJ.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class WORKSTREAM
     {
         public int workstreamID { get; set; }
+        [Display(Name = "Workstream")]
         public string workstreamName { get; set; }
     }
 }

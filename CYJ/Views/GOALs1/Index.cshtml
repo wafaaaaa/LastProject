@@ -5,25 +5,27 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Goals</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create a new goal", "Create")
+    @Html.ActionLink("Create A New Period", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.goalName)
+            @Html.DisplayNameFor(model => model.period)
         </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.goalName)
+            @Html.DisplayFor(modelItem => item.period)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.goalID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.goalID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.goalID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.goalID })
         </td>
     </tr>
 }
