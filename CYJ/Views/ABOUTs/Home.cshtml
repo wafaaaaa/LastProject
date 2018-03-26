@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
-<<<<<<< HEAD
+
 
 <!doctype html>
 <html lang="en">
@@ -47,61 +47,13 @@
 
                         </div>
                         <br />
-                       
+
                     </div>
                     <br>
                     <br>
 
                 </div>
-=======
-<style>
-    .links {
-        font-size: 20px;
-        border: 25px;
-    }
 
-    .table {
-        font-size: 20px;
-    }
-</style>
-<div class="left">
-    <h1 class="pagetitle"><text style="color:#3ec2cf"> CYJAX </text>DASHBOARD</h1>
-
-    <div class="row">
-
-        <div class="left">
-            <div class="aboutcolumn">
-                <h2 class="aboutheader" style="color:white">ABOUT</h2>
-                <br />
-                <table class="table">
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.about1)
-                            </td>
-                        </tr>
-                    }
-
-                </table>
-            </div>
-            <div class="linkscolumn">
-                <h2 class="linksheader" style="color:white">CONTENT LINKS</h2>
-                <br />
-                <ul>
-                    <!--NEED TO REDIRECT ALL OF THESE CONTENT LINKS TO CORRECT PLACES ONCE THEY ARE ALL SET!!-->
-                    <li class="links">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="links">@Html.ActionLink("Service Delivery", "Index", "Home")</li>
-                    <li class="links">@Html.ActionLink("Corps Member Experience", "Index", "Home")</li>
-                    <li class="links">@Html.ActionLink("External Affairs", "Index", "Home")</li>
-                    <li class="links">@Html.ActionLink("Revenue", "Index", "Home")</li>
-                    <li class="links">@Html.ActionLink("OPEX", "Index", "Home")</li>
-                    <li class="links">@Html.ActionLink("RAD", "Index", "Home")</li>
-                </ul>
-                <br />
-                <u><h2>User Manual</h2></u>
-                <p style="font-style:italic;color:red;">Here is where the user manual will be located. COMING SOON!</p>
->>>>>>> 975f76ec11607e23eaada6241289277cc11cdd81
             </div>
         </div>
     </div>

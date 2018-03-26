@@ -4,89 +4,99 @@
     ViewBag.Title = "Goals";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
+<body>
+    <h2>Goals</h2>
 
-<h2>Goals</h2>
-
-<p>
-    @Html.ActionLink("Create a New Goal", "Create")
-</p>
-
-@using (Html.BeginForm())
-{
     <p>
-        @Html.ActionLink("Filter by Period", "FilterPeriod") | 
-        @Html.ActionLink("Filter by Workstream", "FilterWorkstream") | 
-        @Html.ActionLink("Filter by Fiscal Year", "FilterFY")
+        @Html.ActionLink("Create a New Goal", "Create")
+    </p>
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            @Html.ActionLink("Filter by Period", "FilterPeriod") |
+            @Html.ActionLink("Filter by Workstream", "FilterWorkstream") |
+            @Html.ActionLink("Filter by Fiscal Year", "FilterFY")
         </p>
-    @*@<p>
-        Find by Period: @Html.TextBox("searchString")
-        <input type="submit" value="Search" />
-    </p>*@
-    }   
+        @*@<p>
+                Find by Period: @Html.TextBox("searchString")
+                <input type="submit" value="Search" />
+            </p>*@
+    }
 
+    <div class="wrapper">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="card-content table-responsive">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.period)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.actualValue)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.goalValue)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.fiscalYear)
+                                </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.subcategory)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.category)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.workstream)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.team)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.period)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.actualValue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.goalValue)
-            </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.fiscalYear)
-                </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.subcategory)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.workstream)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.team)
-            </th>
-            <th></th>
-        </tr>
+                        @foreach (var item in Model)
+            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.period)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.actualValue)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.goalValue)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.fiscalYear)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.subcategory)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.workstream)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.team)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.goalID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.goalID })
+                                    @*@Html.ActionLink("Delete", "Delete", new { id=item.goalID })*@
+                                </td>
+                            </tr>
+                        }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.period)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.actualValue)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.goalValue)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.fiscalYear)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.subcategory)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.workstream)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.team)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.goalID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.goalID })
-                    @*@Html.ActionLink("Delete", "Delete", new { id=item.goalID })*@
-                </td>
-            </tr>
-        }
-
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--  PerfectScrollbar Library -->
+<script src="../assets/js/perfect-scrollbar.jquery.min.js"></script>
