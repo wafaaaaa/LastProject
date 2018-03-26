@@ -68,6 +68,21 @@ namespace CYJ.Controllers
                 return RedirectToAction("Index");
         }
 
+        // GET: ABOUTs/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ABOUT aBOUT = db.ABOUTs.Find(id);
+            if (aBOUT == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aBOUT);
+        }
+
         // POST: ABOUTs/Delete/5
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)

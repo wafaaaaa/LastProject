@@ -11,10 +11,12 @@ namespace CYJ.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SUBCATEGORY
     {
         public int subcategoryID { get; set; }
+        [Display(Name = "Subcategory")]
         public string subcategoryName { get; set; }
     }
 }

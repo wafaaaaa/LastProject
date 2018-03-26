@@ -20,6 +20,22 @@ namespace CYJ.Controllers
         {
             return View(db.GOALS.ToList());
         }
+
+        // GET: GOALs1/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            GOAL gOAL = db.GOALS.Find(id);
+            if (gOAL == null)
+            {
+                return HttpNotFound();
+            }
+            return View(gOAL);
+        }
+
         // GET: GOALs1/Create
         public ActionResult Create()
         {
@@ -30,7 +46,7 @@ namespace CYJ.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create([Bind(Include = "goalID,goalName,goalValue,FYstart,FYend,subcategory,category,workstream,team")] GOAL gOAL)
+        public ActionResult Create([Bind(Include = "goalID,period,actualValue,goalValue,fiscalYear,subcategory,category,workstream,team")] GOAL gOAL)
         {
                 db.GOALS.Add(gOAL);
                 db.SaveChanges();
@@ -56,12 +72,38 @@ namespace CYJ.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "goalID,goalName,goalValue,FYstart,FYend,subcategory,category,workstream,team")] GOAL gOAL)
+        public ActionResult Edit([Bind(Include = "goalID,period,actualValue,goalValue,fiscalYear,subcategory,category,workstream,team")] GOAL gOAL)
         {
                 db.Entry(gOAL).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
         }
+
+        // GET: GOALs1/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            GOAL gOAL = db.GOALS.Find(id);
+            if (gOAL == null)
+            {
+                return HttpNotFound();
+            }
+            return View(gOAL);
+        }
+
+        // POST: GOALs1/Delete/5
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            GOAL gOAL = db.GOALS.Find(id);
+            db.GOALS.Remove(gOAL);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

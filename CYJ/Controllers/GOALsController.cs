@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -21,6 +22,35 @@ namespace CYJ.Controllers
             return View(db.GOALS.ToList());
         }
 
+        public ViewResult FilterPeriod (string searchString)
+        {
+            var goals = from g in db.GOALS
+                        select g;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                goals = goals.Where(g => g.period.Contains(searchString));
+            }
+            return View(goals.ToList());
+        }
+
+        public ViewResult FilterWorkstream(string searchString)
+        {
+            var goals = from g in db.GOALS
+                        select g;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                goals = goals.Where(g => g.workstream.Contains(searchString));
+            }
+            return View(goals.ToList());
+        }
+
+        public ViewResult FilterFY(int searchString)
+        {
+            var goals = from g in db.GOALS
+                        select g;
+                goals = goals.Where(g => g.fiscalYear.Equals(searchString));
+            return View(goals.ToList());
+        }
         // GET: GOALs/Details/5
         public ActionResult Details(int? id)
         {
@@ -74,7 +104,7 @@ namespace CYJ.Controllers
         [HttpPost]
         public ActionResult Edit([Bind(Include = "goalID,period,actualValue,goalValue,fiscalYear,subcategory,category,workstream,team")] GOAL gOAL)
         {
-                db.Entry(gOAL).State = EntityState.Modified;
+               db.Entry(gOAL).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
         }
