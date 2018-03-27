@@ -48,7 +48,7 @@ namespace CYJ.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create([Bind(Include = "fiscalYearID,endDate,quarteroptionID,subcategoryID")] FISCALYEAR fISCALYEAR)
+        public ActionResult Create([Bind(Include = "fiscalYearID,fy,quarteroptionID,subcategoryID")] FISCALYEAR fISCALYEAR)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace CYJ.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "fiscalYearID,endDate,quarteroptionID,subcategoryID")] FISCALYEAR fISCALYEAR)
+        public ActionResult Edit([Bind(Include = "fiscalYearID,fy,quarteroptionID,subcategoryID")] FISCALYEAR fISCALYEAR)
         {
             if (ModelState.IsValid)
             {
