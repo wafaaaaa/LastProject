@@ -8,21 +8,21 @@ namespace CYJ.Services
 {
     public class GoalServices
     {
-        private readonly UNFCYJEntities _dbContext;
+        private readonly cyjEntities _dbContext;
         public GoalServices()
         {
-            _dbContext = new UNFCYJEntities();
+            _dbContext = new cyjEntities();
         }
 
-        public List<GOAL> GetAllGoal()
+        public List<GOALACTUAL> GetAllGoal()
         {
 
-            return _dbContext.GOALS.ToList();
+            return _dbContext.GOALACTUALs.ToList();
         }
 
-        public GOAL GetAGoalsById(int id)
+        public GOALACTUAL GetAGoalsById(int id)
         {
-            return _dbContext.GOALS.SingleOrDefault(t => t.goalID == id);
+            return _dbContext.GOALACTUALs.SingleOrDefault(t => t.goalActualID == id);
         }
 
         public void Dispose()

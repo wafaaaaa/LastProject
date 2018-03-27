@@ -13,29 +13,52 @@ namespace CYJ.Controllers
     [Authorize]
     public class SUBCATEGORiesController : Controller
     {
-        private UNFCYJEntities db = new UNFCYJEntities();
+        private cyjEntities db = new cyjEntities();
 
         // GET: SUBCATEGORies
         public ActionResult Index()
         {
-            return View(db.SUBCATEGORies.ToList());
+            var sUBCATEGORies = db.SUBCATEGORies.Include(s => s.CATEGORY);
+            return View(sUBCATEGORies.ToList());
+        }
+
+        // GET: SUBCATEGORies/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SUBCATEGORY sUBCATEGORY = db.SUBCATEGORies.Find(id);
+            if (sUBCATEGORY == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sUBCATEGORY);
         }
 
         // GET: SUBCATEGORies/Create
         public ActionResult Create()
         {
+            ViewBag.categoryID = new SelectList(db.CATEGORies, "categoryID", "categoryName");
             return View();
         }
 
         // POST: SUBCATEGORies/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create([Bind(Include = "subcategoryID,subcategoryName")] SUBCATEGORY sUBCATEGORY)
+        public ActionResult Create([Bind(Include = "subcategoryID,subcategoryName,categoryID")] SUBCATEGORY sUBCATEGORY)
         {
+            if (ModelState.IsValid)
+            {
                 db.SUBCATEGORies.Add(sUBCATEGORY);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+
+            ViewBag.categoryID = new SelectList(db.CATEGORies, "categoryID", "categoryName", sUBCATEGORY.categoryID);
+            return View(sUBCATEGORY);
         }
 
         // GET: SUBCATEGORies/Edit/5
@@ -50,18 +73,49 @@ namespace CYJ.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.categoryID = new SelectList(db.CATEGORies, "categoryID", "categoryName", sUBCATEGORY.categoryID);
             return View(sUBCATEGORY);
         }
 
         // POST: SUBCATEGORies/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "subcategoryID,subcategoryName")] SUBCATEGORY sUBCATEGORY)
+        public ActionResult Edit([Bind(Include = "subcategoryID,subcategoryName,categoryID")] SUBCATEGORY sUBCATEGORY)
         {
+            if (ModelState.IsValid)
+            {
                 db.Entry(sUBCATEGORY).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            ViewBag.categoryID = new SelectList(db.CATEGORies, "categoryID", "categoryName", sUBCATEGORY.categoryID);
+            return View(sUBCATEGORY);
+        }
+
+        // GET: SUBCATEGORies/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SUBCATEGORY sUBCATEGORY = db.SUBCATEGORies.Find(id);
+            if (sUBCATEGORY == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sUBCATEGORY);
+        }
+
+        // POST: SUBCATEGORies/Delete/5
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            SUBCATEGORY sUBCATEGORY = db.SUBCATEGORies.Find(id);
+            db.SUBCATEGORies.Remove(sUBCATEGORY);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

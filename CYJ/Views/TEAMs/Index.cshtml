@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Teams</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create a new team", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.teamName)
+            @Html.DisplayNameFor(model => model.TeamName)
         </th>
         <th></th>
     </tr>
@@ -21,10 +21,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.teamName)
+            @Html.DisplayFor(modelItem => item.TeamName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.teamID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.TeamID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TeamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TeamID })
         </td>
     </tr>
 }

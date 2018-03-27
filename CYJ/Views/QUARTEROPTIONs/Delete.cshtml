@@ -1,0 +1,48 @@
+﻿@model CYJ.Models.QUARTEROPTION
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>QUARTEROPTION</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.subcategoryID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subcategoryID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quarterOpt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quarterOpt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FISCALYEAR.fiscalYearID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FISCALYEAR.fiscalYearID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

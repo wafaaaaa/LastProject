@@ -15,8 +15,27 @@ namespace CYJ.Models
 
     public partial class TEAM
     {
-        public int teamID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TEAM()
+        {
+            this.CHARTs = new HashSet<CHART>();
+            this.CHARTs1 = new HashSet<CHART>();
+            this.GOALACTUALs = new HashSet<GOALACTUAL>();
+            this.WORKSTREAMs = new HashSet<WORKSTREAM>();
+        }
+
         [Display(Name = "Team")]
-        public string teamName { get; set; }
+        public int TeamID { get; set; }
+        [Display(Name = "Team")]
+        public string TeamName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHART> CHARTs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHART> CHARTs1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GOALACTUAL> GOALACTUALs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WORKSTREAM> WORKSTREAMs { get; set; }
     }
 }

@@ -5,15 +5,18 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Categories</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create a new category", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.categoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WORKSTREAM.workstreamName)
         </th>
         <th></th>
     </tr>
@@ -24,7 +27,12 @@
             @Html.DisplayFor(modelItem => item.categoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.categoryID }) 
+            @Html.DisplayFor(modelItem => item.WORKSTREAM.workstreamName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.categoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.categoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.categoryID })
         </td>
     </tr>
 }

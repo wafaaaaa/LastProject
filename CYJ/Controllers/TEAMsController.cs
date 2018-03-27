@@ -13,7 +13,7 @@ namespace CYJ.Controllers
     [Authorize]
     public class TEAMsController : Controller
     {
-        private UNFCYJEntities db = new UNFCYJEntities();
+        private cyjEntities db = new cyjEntities();
 
         // GET: TEAMs
         public ActionResult Index()
@@ -21,6 +21,20 @@ namespace CYJ.Controllers
             return View(db.TEAMs.ToList());
         }
 
+        // GET: TEAMs/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TEAM tEAM = db.TEAMs.Find(id);
+            if (tEAM == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tEAM);
+        }
 
         // GET: TEAMs/Create
         public ActionResult Create()
@@ -30,13 +44,18 @@ namespace CYJ.Controllers
 
         // POST: TEAMs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create([Bind(Include = "teamID,teamName")] TEAM tEAM)
+        public ActionResult Create([Bind(Include = "TeamID,TeamName")] TEAM tEAM)
         {
+            if (ModelState.IsValid)
+            {
                 db.TEAMs.Add(tEAM);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+
+            return View(tEAM);
         }
 
         // GET: TEAMs/Edit/5
@@ -56,13 +75,42 @@ namespace CYJ.Controllers
 
         // POST: TEAMs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "teamID,teamName")] TEAM tEAM)
+        public ActionResult Edit([Bind(Include = "TeamID,TeamName")] TEAM tEAM)
         {
+            if (ModelState.IsValid)
+            {
                 db.Entry(tEAM).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            return View(tEAM);
+        }
+
+        // GET: TEAMs/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TEAM tEAM = db.TEAMs.Find(id);
+            if (tEAM == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tEAM);
+        }
+
+        // POST: TEAMs/Delete/5
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            TEAM tEAM = db.TEAMs.Find(id);
+            db.TEAMs.Remove(tEAM);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CYJ.Models.FISCALYEAR>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fy)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.subcategoryID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fy)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.subcategoryID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.QUARTEROPTION.quarterOpt)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.fiscalYearID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.fiscalYearID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.fiscalYearID })
+        </td>
+    </tr>
+}
+
+</table>

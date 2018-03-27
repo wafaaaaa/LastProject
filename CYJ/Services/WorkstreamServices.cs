@@ -8,11 +8,11 @@ namespace CYJ.Services
 {
     public class WorkstreamServices
     {
-        private readonly UNFCYJEntities _dbContext;
+        private readonly cyjEntities _dbContext;
 
         public WorkstreamServices()
         {
-            _dbContext = new UNFCYJEntities();
+            _dbContext = new cyjEntities();
         }
 
         public List<WORKSTREAM> GetAllWStreams()

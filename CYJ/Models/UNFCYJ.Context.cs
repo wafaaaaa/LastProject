@@ -10,14 +10,13 @@
 namespace CYJ.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class UNFCYJEntities : DbContext
+    public partial class cyjEntities : DbContext
     {
-        public UNFCYJEntities()
-            : base("name=UNFCYJEntities")
+        public cyjEntities()
+            : base("name=cyjEntities")
         {
         }
     
@@ -28,8 +27,10 @@ namespace CYJ.Models
     
         public virtual DbSet<ABOUT> ABOUTs { get; set; }
         public virtual DbSet<CATEGORY> CATEGORies { get; set; }
-        public virtual DbSet<GOALCAT> GOALCATs { get; set; }
-        public virtual DbSet<GOAL> GOALS { get; set; }
+        public virtual DbSet<CHART> CHARTs { get; set; }
+        public virtual DbSet<FISCALYEAR> FISCALYEARs { get; set; }
+        public virtual DbSet<GOALACTUAL> GOALACTUALs { get; set; }
+        public virtual DbSet<QUARTEROPTION> QUARTEROPTIONs { get; set; }
         public virtual DbSet<SUBCATEGORY> SUBCATEGORies { get; set; }
         public virtual DbSet<TEAM> TEAMs { get; set; }
         public virtual DbSet<WORKSTREAM> WORKSTREAMs { get; set; }

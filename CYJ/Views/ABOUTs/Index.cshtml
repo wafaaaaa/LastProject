@@ -3,40 +3,23 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
-<!doctype html>
+<h2 class="aboutheader" style="color:white">ABOUT</h2>
+<br />
+<p>
+    @Html.ActionLink("Create New Post", "Create")
+</p>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AboutInfo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AboutID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AboutID })
+            </td>
+        </tr>
+    }
 
-    <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-header" data-background-color="red">
-                    <h4 class="title">EDIT THE ABOUT PAGE</h4>
-
-                </div>
-                <div class="card-content">
-                    <center>
-                        <p>
-                            @Html.ActionLink("Create New Post", "Create")
-                        </p>
-                        <table class="table">
-
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.about1)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.aboutID }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.aboutID })
-                                    </td>
-                                </tr>
-                            }
-
-                        </table>
-
-                    </center>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+</table>

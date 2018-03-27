@@ -15,8 +15,31 @@ namespace CYJ.Models
 
     public partial class CATEGORY
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CATEGORY()
+        {
+            this.CHARTs = new HashSet<CHART>();
+            this.GOALACTUALs = new HashSet<GOALACTUAL>();
+            this.SUBCATEGORies = new HashSet<SUBCATEGORY>();
+            this.WORKSTREAMs = new HashSet<WORKSTREAM>();
+        }
+
+
+        [Display(Name = "Category")]
         public int categoryID { get; set; }
         [Display(Name = "Category")]
         public string categoryName { get; set; }
+        [Display(Name = "Workstream")]
+        public Nullable<int> workstreamID { get; set; }
+    
+        public virtual WORKSTREAM WORKSTREAM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHART> CHARTs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GOALACTUAL> GOALACTUALs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SUBCATEGORY> SUBCATEGORies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WORKSTREAM> WORKSTREAMs { get; set; }
     }
 }

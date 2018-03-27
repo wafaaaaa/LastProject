@@ -8,11 +8,11 @@ namespace CYJ.Services
 {
     public class SubcategoryServices
     {
-        private readonly UNFCYJEntities _dbContext;
+        private readonly cyjEntities _dbContext;
 
         public SubcategoryServices()
         {
-            _dbContext = new UNFCYJEntities();
+            _dbContext = new cyjEntities();
         }
 
         public List<SUBCATEGORY> GetAllSubCategories()

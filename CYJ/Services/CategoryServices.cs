@@ -8,11 +8,11 @@ namespace CYJ.Services
 {
     public class CategoryServices
     {
-        private readonly UNFCYJEntities _dbContext;
+        private readonly cyjEntities _dbContext;
 
         public CategoryServices()
         {
-            _dbContext = new UNFCYJEntities();
+            _dbContext = new cyjEntities();
         }
 
         public List<CATEGORY> GetAllCategories()

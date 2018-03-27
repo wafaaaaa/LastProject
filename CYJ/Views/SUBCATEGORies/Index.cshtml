@@ -5,15 +5,18 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Subcategories</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create a new subcategory", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.subcategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEGORY.categoryName)
         </th>
         <th></th>
     </tr>
@@ -24,7 +27,12 @@
             @Html.DisplayFor(modelItem => item.subcategoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.subcategoryID }) 
+            @Html.DisplayFor(modelItem => item.CATEGORY.categoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.subcategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.subcategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.subcategoryID })
         </td>
     </tr>
 }

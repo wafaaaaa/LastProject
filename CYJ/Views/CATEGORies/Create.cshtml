@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Create Categories</h2>
+<h2>Create</h2>
+
 
 @using (Html.BeginForm()) 
 {
@@ -13,10 +14,20 @@
     <div class="form-horizontal">
         <h4>CATEGORY</h4>
         <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.categoryName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.categoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.categoryName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.workstreamID, "workstreamID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("workstreamID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.workstreamID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -29,5 +40,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to Categories", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>

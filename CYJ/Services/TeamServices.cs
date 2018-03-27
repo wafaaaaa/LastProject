@@ -8,11 +8,11 @@ namespace CYJ.Services
 {
     public class TeamServices
     {
-        private readonly UNFCYJEntities _dbContext;
+        private readonly cyjEntities _dbContext;
 
         public TeamServices()
         {
-            _dbContext = new UNFCYJEntities(); 
+            _dbContext = new cyjEntities(); 
         }
         public List<TEAM> GetAllTeams()
         {
@@ -21,7 +21,7 @@ namespace CYJ.Services
 
         public TEAM GetTeamById(int id)
         {
-            return _dbContext.TEAMs.SingleOrDefault(t => t.teamID == id);
+            return _dbContext.TEAMs.SingleOrDefault(t => t.TeamID == id);
         }
 
         public void InsertTeam(TEAM _teamName)

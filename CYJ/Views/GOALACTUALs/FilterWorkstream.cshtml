@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CYJ.Models.GOAL>
+﻿@model IEnumerable<CYJ.Models.GOALACTUAL>
 
 @{
     ViewBag.Title = "Goals";
@@ -15,7 +15,7 @@
 @using (Html.BeginForm())
 {
     <p>
-        Filter by Fiscal Year: @Html.TextBox("searchString")
+        Filter by Workstream: @Html.TextBox("searchString")
         <input type="submit" value="Search" />
     </p>
 }
@@ -24,10 +24,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.period)
+            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.actualValue)
+            @Html.DisplayNameFor(model => model.actualGoal)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.goalValue)
@@ -36,16 +36,16 @@
                 @Html.DisplayNameFor(model => model.fiscalYear)
             </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.subcategory)
+            @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.category)
+            @Html.DisplayNameFor(model => model.CATEGORY.categoryID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.workstream)
+            @Html.DisplayNameFor(model => model.WORKSTREAM.workstreamName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.team)
+            @Html.DisplayNameFor(model => model.TEAM.TeamName)
         </th>
         <th></th>
     </tr>
@@ -54,10 +54,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.period)
+                @Html.DisplayFor(modelItem => item.QUARTEROPTION.quarterOpt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.actualValue)
+                @Html.DisplayFor(modelItem => item.actualGoal)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.goalValue)
@@ -66,20 +66,20 @@
                     @Html.DisplayFor(modelItem => item.fiscalYear)
                 </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.subcategory)
+                @Html.DisplayFor(modelItem => item.SUBCATEGORY.subcategoryName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.category)
+                @Html.DisplayFor(modelItem => item.CATEGORY.categoryName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.workstream)
+                @Html.DisplayFor(modelItem => item.WORKSTREAM.workstreamName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.team)
+                @Html.DisplayFor(modelItem => item.TEAM.TeamName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.goalID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.goalID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.goalActualID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.goalActualID })
                 @*@Html.ActionLink("Delete", "Delete", new { id=item.goalID })*@
             </td>
         </tr>

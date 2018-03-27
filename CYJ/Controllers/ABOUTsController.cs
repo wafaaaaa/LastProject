@@ -13,8 +13,9 @@ namespace CYJ.Controllers
     [Authorize]
     public class ABOUTsController : Controller
     {
-        private UNFCYJEntities db = new UNFCYJEntities();
+        private cyjEntities db = new cyjEntities();
 
+        // GET: ABOUTs
         // GET: ABOUTs
         public ActionResult Index()
         {
@@ -35,11 +36,11 @@ namespace CYJ.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create([Bind(Include = "aboutID,about1")] ABOUT aBOUT)
+        public ActionResult Create([Bind(Include = "aboutID,aboutInfo")] ABOUT aBOUT)
         {
-                db.ABOUTs.Add(aBOUT);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            db.ABOUTs.Add(aBOUT);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: ABOUTs/Edit/5
@@ -61,11 +62,11 @@ namespace CYJ.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "aboutID,about1")] ABOUT aBOUT)
+        public ActionResult Edit([Bind(Include = "aboutID,aboutInfo")] ABOUT aBOUT)
         {
-                db.Entry(aBOUT).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            db.Entry(aBOUT).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: ABOUTs/Delete/5

@@ -5,15 +5,24 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Workstreams</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create a new workstream", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.workstreamName)
+        </th>
+      @*<th>
+            @Html.DisplayNameFor(model => model.CATEGORY.categoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.TEAM.TeamName)
         </th>
         <th></th>
     </tr>
@@ -23,8 +32,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.workstreamName)
         </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CATEGORY.categoryName)
+        </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.workstreamID })
+            @Html.DisplayFor(modelItem => item.SUBCATEGORY.subcategoryName)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.TEAM.TeamName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.workstreamID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.workstreamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.workstreamID })
         </td>
     </tr>
 }
