@@ -12,9 +12,12 @@ namespace CYJ.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using DotNet.Highcharts;
+
     public partial class cyjEntities : DbContext
     {
+        internal Highcharts Chart1;
+
         public cyjEntities()
             : base("name=cyjEntities")
         {

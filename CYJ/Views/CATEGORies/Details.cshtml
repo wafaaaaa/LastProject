@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Details</h2>
+<h2>View Saved Category</h2>
 
 <div>
-    <h4>CATEGORY</h4>
+   
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -18,18 +18,11 @@
         <dd>
             @Html.DisplayFor(model => model.categoryName)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WORKSTREAM.workstreamName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WORKSTREAM.workstreamName)
-        </dd>
-
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.categoryID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "Categories") + "'");" />
+    </div>
 </p>

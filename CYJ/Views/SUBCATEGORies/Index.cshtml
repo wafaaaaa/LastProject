@@ -5,19 +5,20 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Available Subcatorgies</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="ADD A NEW SUBCATEGORY" onclick="@("window.location.href='" + @Url.Action("Create", "Subcategories") + "'");" />
+    </div>
 </p>
+
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.subcategoryName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CATEGORY.categoryName)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -25,9 +26,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.subcategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CATEGORY.categoryName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.subcategoryID }) |
@@ -38,3 +36,6 @@
 }
 
 </table>
+<div class="col-md-3">
+    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+</div>

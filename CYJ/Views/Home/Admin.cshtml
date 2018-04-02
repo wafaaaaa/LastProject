@@ -13,23 +13,53 @@
 
             </div>
             <div class="card-content">
+
                 <center>
 
                     <div class="col-md-4">
-                        <img src="~/Content/Images/goal_value.png" style="width:100px;height:100px;" /> <br />
-                        <input type="button" class="btn btn-info" value="UPDATE A GOAL"  onclick="@("window.location.href='" + @Url.Action("Index", "GOALACTUALs") + "'");"/>
-                    </div>
+                        <div class="card card-pricing card-raised">
+                            <div class="card-content">
+                                <div class="icons">
+                                    <i class="material-icons" style="font-size: 100px; color:#bedde0">add_circle</i>
+                                </div>
+                                <input type="button" class="btn" style="background-color:#3EC2CF" value="ADD A NEW ITEM" Onclick="@("window.location.href='" + @Url.Action("Add", "Home") + "'");" />
+
+                                <p class="card-description">Add a new team, workstream, goal category, etc.</p>
+                              
+                            </div>
+                        </div>
+                         </div>
 
 
                     <div class="col-md-4">
-                        <img src="~/Content/Images/about_edit.png" style="width:100px;height:100px;" /> <br />
-                        <input type="button" class="btn btn-info" value="EDIT ABOUT" onclick="@("window.location.href='" + @Url.Action("Index", "ABOUTs") + "'");" />
+                        <div class="card card-pricing card-raised">
+                            <div class="card-content">
+                                <div class="icons">
+                                    <i class="material-icons" style="font-size: 100px; color:#bedde0">update</i>
+                                </div>
+                                <input type="button" class="btn" style="background-color:#3EC2CF" value="UPDATE A GOAL" onclick="@("window.location.href='" + @Url.Action("Index", "GOALACTUALs") + "'");" />
+
+                                <p class="card-description">Edit and delete current goal values and actuals.</p>
+
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-md-4">
-                        <img src="~/Content/Images/add_item.png" style="width:100px;height:100px;" /> <br />
-                        <input type="button" class="btn btn-info" value="ADD A NEW ITEM" Onclick="@("window.location.href='" + @Url.Action("Add", "Home") + "'");" />
+                        <div class="card card-pricing card-raised">
+                            <div class="card-content">
+                                <div class="icons">
+                                    <i class="material-icons"style="font-size: 100px; color:#bedde0">info</i>
+                                </div>
+                                <input type="button" class="btn" style="background-color:#3EC2CF" value="EDIT ABOUT" onclick="@("window.location.href='" + @Url.Action("Index", "ABOUTs") + "'");" />
+
+                                <p class="card-description">Add a new post or edit an entry on the about page.</p>
+
+                            </div>
+                        </div>
                     </div>
+
+
 
                     <br /> <br /> <br /> <br /> <br />
 

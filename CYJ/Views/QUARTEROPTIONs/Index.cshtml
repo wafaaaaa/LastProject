@@ -5,36 +5,30 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Available Period</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="ADD A NEW PERIOD" onclick="@("window.location.href='" + @Url.Action("Create", "Quarteroptions") + "'");" />
+    </div>
 </p>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.subcategoryID)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.quarterOpt)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FISCALYEAR.fiscalYearID)
-        </th>
+       
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.subcategoryID)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.quarterOpt)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FISCALYEAR.fiscalYearID)
-        </td>
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.quarteroptionID }) |
             @Html.ActionLink("Details", "Details", new { id=item.quarteroptionID }) |
@@ -44,3 +38,6 @@
 }
 
 </table>
+<div class="col-md-3">
+    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+</div>

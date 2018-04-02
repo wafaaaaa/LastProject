@@ -40,7 +40,7 @@ namespace CYJ.Controllers
         // GET: QUARTEROPTIONs/Create
         public ActionResult Create()
         {
-            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARs, "fiscalYearID", "fiscalYearID");
+            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARs, "fiscalYearID", "fy");
             return View();
         }
 
