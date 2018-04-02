@@ -4,30 +4,10 @@
 }
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-        #container, #container2, #container3 {
-            min-width: 310px;
-            max-width: 475px;
-            width: 500px;
-            height: 350px;
-            padding-left: 10px;
-            padding-right: 10px;
-            float: left;
-        }
-
-        #container4, #container5, #container6 {
-            min-width: 310px;
-            max-width: 475px;
-            width: 500px;
-            height: 350px;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 10px;
-            float: left;
-        }
-    </style>
+    <!-- Full Calendar -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.print.css" media="print" />
+        @Scripts.Render("~/bundles/jquery")  
 
 </head>
 <body>
@@ -39,6 +19,12 @@
     <script src="~/Scripts/code/highcharts.js"></script>
     <script src="~/Scripts/code/modules/series-label.js"></script>
     <script src="~/Scripts/code/modules/exporting.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    <!-- Full Calendar -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.min.js"></script>
+    @Scripts.Render("~/bundles/Scrip-calendar")
+
+   
 
 </body>
 </html>

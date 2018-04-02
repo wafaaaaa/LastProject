@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using CYJ.Models;
+using System.Web.Script.Services;
+using System.Web.Services;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace CYJ.Controllers
 {
@@ -15,6 +17,7 @@ namespace CYJ.Controllers
     {
         
         private cyjEntities db = new cyjEntities();
+
 
         // GET: GOALACTUALs
         public ActionResult Index()
@@ -181,5 +184,8 @@ namespace CYJ.Controllers
             }
             base.Dispose(disposing);
         }
+
+       
+
     }
 }
