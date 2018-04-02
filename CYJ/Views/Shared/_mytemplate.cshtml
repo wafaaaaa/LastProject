@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS     -->
     <link href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
-    <link href="@Url.Content("~/Content/mytemplate/")css/material-dashboard.css" rel="stylesheet" />
+    <link href="~/Content/mytemplate/css/material-dashboard.css" rel="stylesheet" />
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="@Url.Content("~/Content/mytemplate/")css/demo.css" rel="stylesheet" />
     <!--     Fonts and icons     -->
@@ -31,38 +31,30 @@
     <!--  Dynamic Elements plugin -->
     <script src="@Url.Content("~/Content/mytemplate/")js/arrive.min.js"></script>
     <!--  PerfectScrollbar Library -->
-    <script src="@Url.Content("~/Content/mytemplate/")js/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Notifications Plugin    -->
+
+    <script src="~/Content/mytemplate/js/perfect-scrollbar.jquery.min.js"></script>    <!--  Notifications Plugin    -->
     <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap-notify.js"></script>
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Material Dashboard javascript methods -->
     <script src="@Url.Content("~/Content/mytemplate/")js/material-dashboard.js?v=1.2.0"></script>
-    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-    <script src="@Url.Content("~/Content/mytemplate/")js/demo.js"></script>
+
     <script type="text/javascript">
-        $(document).ready(function () {
-
-            // Javascript method's body can be found in assets/js/demos.js
-            demo.initDashboardPageCharts();
-
-        });
+     
     </script>
+    
+  
 
 </head>
 <body>
     <div class="wrapper">
         <div class="sidebar" data-color="red" data-image="@Url.Content("~/Content/Images/citysidebar.jpg")">
-            <!--
-                Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-
-                Tip 2: you can also add an image using data-image tag
-            -->
+      
             <div class="logo">
                 <a href="https://www.cityyear.org/jacksonville" class="simple-text">
                     City Year Jax
                 </a>
-                <img src="~/Content/Images/CITYYEARLOGO.png" alt="LOGO" style="width:200px;height:200px;" />
+                <Center> <img src="~/Content/Images/CITYYEARLOGO.png" alt="LOGO" style="width:200px;height:200px;" /></Center>
 
             </div>
             <div class="sidebar-wrapper">
@@ -71,12 +63,12 @@
                     <li><a href="@Url.Action("Home", "ABOUTs")"><i class="material-icons md-18">location_city</i>ABOUT</a></li>
                     <li><a href="@Url.Action("Admin", "Home")"><i class="material-icons md-18">verified_user</i>ADMIN</a></li>
                     @*<li><a href="@Url.Action("FilterByGoal", "GOALs")"><i class="material-icons md-18">school</i>FILTER BY GOAL</a></li>*@
-                    <li><a href="@Url.Action("ServiceDelivery", "Home")"><i class="material-icons md-18">school</i>SERVICE DELIVERY</a></li>
-                    <li><a href="@Url.Action("CorpMemberExperience", "Home")"><i class="material-icons md-18">group</i>CORP MEMBER EXPERIENCE</a></li>
-                    <li><a href="@Url.Action("ExternalAffairs", "Home")"><i class="material-icons md-18">event</i>EXTERNAL AFFAIRS</a></li>
-                    <li><a href="@Url.Action("Revenue", "Home")"><i class="material-icons md-18">local_atm</i>REVENUE</a></li>
-                    <li><a href="@Url.Action("OpEx", "Home")"><i class="material-icons md-18">settings</i>OPEX</a></li>
-                    <li><a href="@Url.Action("RAD", "Home")"><i class="material-icons md-18">assignment</i>RAD</a></li>
+                    <li><a href="@Url.Action("ServiceDelivery", "GRAPHs")"><i class="material-icons md-18">school</i>SERVICE DELIVERY</a></li>
+                    <li><a href="@Url.Action("CorpMemberExperience", "GRAPHs")"><i class="material-icons md-18">group</i>CORP MEMBER EXPERIENCE</a></li>
+                    <li><a href="@Url.Action("ExternalAffairs", "GRAPHs")"><i class="material-icons md-18">event</i>EXTERNAL AFFAIRS</a></li>
+                    <li><a href="@Url.Action("Revenue", "GRAPHs")"><i class="material-icons md-18">local_atm</i>REVENUE</a></li>
+                    <li><a href="@Url.Action("OpEx", "GRAPHs")"><i class="material-icons md-18">settings</i>OPEX</a></li>
+                    <li><a href="@Url.Action("RAD", "GRAPHs")"><i class="material-icons md-18">assignment</i>RAD</a></li>
                 </ul>
 
             </div>
@@ -126,6 +118,7 @@
             </footer>
         </div>
     </div>
+    @RenderSection("Scripts", false)
 </body>
 
 </html>

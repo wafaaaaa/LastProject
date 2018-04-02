@@ -1,23 +1,16 @@
 ﻿@model CYJ.Models.QUARTEROPTION
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "View";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Details</h2>
+<h2>View Saved Period</h2>
 
 <div>
-    <h4>QUARTEROPTION</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.subcategoryID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.subcategoryID)
-        </dd>
+      
 
         <dt>
             @Html.DisplayNameFor(model => model.quarterOpt)
@@ -27,17 +20,13 @@
             @Html.DisplayFor(model => model.quarterOpt)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FISCALYEAR.fiscalYearID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FISCALYEAR.fiscalYearID)
-        </dd>
+      
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.quarteroptionID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.quarteroptionID }) 
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "Quarteroptions") + "'");" />
+    </div>
 </p>

@@ -13,10 +13,7 @@ namespace CYJ.Controllers
         public HomeController()
         {
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
+
 
         public ActionResult Admin()
         {
@@ -55,6 +52,65 @@ namespace CYJ.Controllers
         public ActionResult RAD()
         {
             return View();
+        }
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public JsonResult GetEvents()
+        {
+            using (cyjEntities1 dc = new cyjEntities1())
+            {
+                var events = dc.Calendars.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+        [HttpPost]
+        public JsonResult SaveEvent(Calendar e)
+        {
+            var status = false;
+            using (cyjEntities1 dc = new cyjEntities1())
+            {
+                if (e.EventID > 0)
+                {
+                    //Update the event
+                    var v = dc.Calendars.Where(a => a.EventID == e.EventID).FirstOrDefault();
+                    if (v != null)
+                    {
+                        v.Subject = e.Subject;
+                        v.Start = e.Start;
+                        v.End = e.End;
+                        v.Description = e.Description;
+                        v.isFullDay = e.isFullDay;
+                        v.ThemeColor = e.ThemeColor;
+                    }
+                }
+                else
+                {
+                    dc.Calendars.Add(e);
+                }
+                dc.SaveChanges();
+                status = true;
+            }
+            return new JsonResult { Data = new { status = status } };
+        }
+
+        [HttpPost]
+        public JsonResult DeleteEvent(int eventID)
+        {
+            var status = false;
+            using (cyjEntities1 dc = new cyjEntities1())
+            {
+                var v = dc.Calendars.Where(a => a.EventID == eventID).FirstOrDefault();
+                if (v != null)
+                {
+                    dc.Calendars.Remove(v);
+                    dc.SaveChanges();
+                    status = true;
+                }
+            }
+            return new JsonResult { Data = new { status = status } };
         }
     }
 }
