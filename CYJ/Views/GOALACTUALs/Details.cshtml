@@ -1,13 +1,14 @@
 ﻿@model CYJ.Models.GOALACTUAL
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>View Saved Goal And Actual</h2>
+<h2>Details</h2>
 
 <div>
+    <h4>GOALACTUAL</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -85,8 +86,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.goalActualID }) 
-    <div class="col-md-3">
-        <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "goalactuals") + "'");" />
-    </div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.goalActualID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

@@ -1,11 +1,11 @@
 ﻿@model CYJ.Models.FISCALYEAR
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>View Saved Fiscal Year</h2>
+<h2>Details</h2>
 
 <div>
     <h4>FISCALYEAR</h4>
@@ -19,7 +19,17 @@
             @Html.DisplayFor(model => model.fy)
         </dd>
 
-       
+        <dt>
+            @Html.DisplayNameFor(model => model.subcategoryID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subcategoryID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
+        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.QUARTEROPTION.quarterOpt)
@@ -28,8 +38,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.fiscalYearID }) 
-    <div class="col-md-3">
-        <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "Fiscalyears") + "'");" />
-    </div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fiscalYearID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

@@ -1,24 +1,26 @@
 ﻿@model IEnumerable<CYJ.Models.FISCALYEAR>
 
 @{
-    ViewBag.Title = "FY";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Available Fiscal Years</h2>
+<h2>Index</h2>
 
 <p>
-    <div class="col-md-3">
-        <input type="button" class="btn btn-info" value="ADD A NEW FISCAL YEAR" onclick="@("window.location.href='" + @Url.Action("Create", "fiscalyears") + "'");" />
-    </div>
+    @Html.ActionLink("Create New", "Create")
 </p>
-
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.fy)
         </th>
-       
+        @*<th>
+            @Html.DisplayNameFor(model => model.subcategoryID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
+        </th>
         <th></th>
     </tr>
 
@@ -27,7 +29,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.fy)
         </td>
-       
+        @*<td>
+            @Html.DisplayFor(modelItem => item.subcategoryID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.QUARTEROPTION.quarterOpt)
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.fiscalYearID }) |
             @Html.ActionLink("Details", "Details", new { id=item.fiscalYearID }) |
@@ -37,6 +44,3 @@
 }
 
 </table>
-<div class="col-md-3">
-    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
-</div>

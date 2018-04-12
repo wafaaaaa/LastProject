@@ -30,7 +30,6 @@ namespace CYJ.Models
         [Display(Name = "Subcategory")]
         public Nullable<int> subcategoryID { get; set; }
         [Display(Name = "Fiscal Year")]
-        //[DisplayFormat(DataFormatString = "{0:yyyy}")]
         public Nullable<int> fy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

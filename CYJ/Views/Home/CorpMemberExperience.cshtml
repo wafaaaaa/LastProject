@@ -1,14 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "Service Delivery";
+    ViewBag.Title = "Corps Member Experience";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
-<<<<<<< HEAD
-=======
 <head>
     <style>
-        .graph{
-            margin-left:300px;
+        .graph {
+            margin-left: 300px;
         }
     </style>
     <!--Load the AJAX API-->
@@ -26,43 +24,41 @@
         // draws it.
         function drawChart() {
 
-            //create the table 3
-            var data3 = new google.visualization.DataTable();
-            data3.addColumn('string', 'Quarter');
-            data3.addColumn('number', 'Actual');
-            data3.addColumn('number', 'Current');
-
-            data3.addRows([
-                ['Q1', 900, 300],
-                ['Q2', 1200, 600],
-                ['Q3', 800, 300],
-                ['Q4', 1100, 550]
+            // Create the data table. 1
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Corp Member Experience');
+            data.addColumn('number', 'Value');
+            data.addRows([
+                ['AmeriCorps Retention', 3],
+                ['ACM Net Promoter Score', 1],
+                ['Team Leaders', 1],
+                ['2nd Year ACM', 1],
             ]);
-            // Set chart options 3
-            var options3 = {
-                'title': 'MATH',
-                'width': 500,
-                'height': 300
+            // Set chart options 1
+            var options = {
+                'title': 'CORP MEMBER EXPERIENCE',
+                'width': 600,
+                'height': 400
             };
             // Instantiate and draw our chart, passing in some options.
-            var chart3 = new google.visualization.LineChart(document.getElementById('chart_div3'));
-            chart3.draw(data3, options3);
+
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
         }
 
     </script>
 </head>
 
-<body><center>
-    <h2>Service Delivery</h2></center>
+<body>
+    <center><h2>Corps Member Experience</h2></center>
     <!--Divs that will hold the charts-->
     <br />
     <div class="graph">
     <table class="columns" style="margin-left:12%">
         <tr>
-            <td><div id="chart_div3" style="border: 1px solid #ccc"></div></td>
+            <td><div id="chart_div" style="border: 1px solid #ccc"></div></td>
         </tr>
     </table>
         </div>
 </body>
 
->>>>>>> parent of a460675... new stuff

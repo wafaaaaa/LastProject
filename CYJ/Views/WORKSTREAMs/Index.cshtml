@@ -5,12 +5,10 @@
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Available Workstreams</h2>
+<h2>Index</h2>
 
 <p>
-    <div class="col-md-3">
-        <input type="button" class="btn btn-info" value="ADD A NEW WORKSTREAM" onclick="@("window.location.href='" + @Url.Action("Create", "Workstreams") + "'");" />
-    </div>
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,7 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
         </th>*@
-        
+        <th>
+            @Html.DisplayNameFor(model => model.TEAM.TeamName)
+        </th>
         <th></th>
     </tr>
 
@@ -38,16 +38,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.SUBCATEGORY.subcategoryName)
         </td>*@
-       
+        <td>
+            @Html.DisplayFor(modelItem => item.TEAM.TeamName)
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.workstreamID }) |
-            @Html.ActionLink("More Info", "Details", new { id=item.workstreamID }) |
-            @Html.ActionLink("Deactivate", "Delete", new { id=item.workstreamID })
+            @Html.ActionLink("Details", "Details", new { id=item.workstreamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.workstreamID })
         </td>
     </tr>
 }
 
 </table>
-<div class="col-md-3">
-    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
-</div>

@@ -3,60 +3,54 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
+<style>
+    .links {
+        font-size: 20px;
+        border: 25px;
+    }
 
+    .table {
+        font-size: 20px;
+    }
+</style>
+<div class="left">
+    <h1 class="pagetitle"><text style="color:#3ec2cf"> CYJAX </text>DASHBOARD</h1>
 
-<!doctype html>
-<html lang="en">
+    <div class="row">
 
-<body>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
-                    <h4 class="title">ABOUT THE DASHBOARD</h4>
+        <div class="left">
+            <div class="aboutcolumn">
+                <h2 class="aboutheader" style="color:white">ABOUT</h2>
+                <br />
+                <table class="table">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AboutInfo)
+                            </td>
+                        </tr>
+                    }
 
-                </div>
-                <div class="card-content">
-                    <div class="row">
-                        <div class="col-md-6">
-
-                            <table class="table">
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.AboutInfo)
-                                        </td>
-                                    </tr>
-                                }
-
-                            </table>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>Content Links</h5>
-
-                            <ul style="font-size:20px;margin:20px;">
-                                <li class="margin" style="color:black">@Html.ActionLink("Home", "Index", "Home")</li>
-                                <li class="margin" color:black>@Html.ActionLink("Service Delivery", "Index", "Home")</li>
-                                <li class="margin" color:black>@Html.ActionLink("Corps Member Experience", "Index", "Home")</li>
-                                <li class="margin" color:black>@Html.ActionLink("External Affairs", "Index", "Home")</li>
-                                <li class="margin" color:black>@Html.ActionLink("Revenue", "Index", "Home")</li>
-                                <li class="margin" color:black>@Html.ActionLink("OPEX", "Index", "Home")</li>
-                                <li class="margin" color:black>@Html.ActionLink("RAD", "Index", "Home")</li>
-                            </ul>
-
-                        </div>
-                        <br />
-
-                    </div>
-                    <br>
-                    <br>
-
-                </div>
-
+                </table>
+            </div>
+            <div class="linkscolumn">
+                <h2 class="linksheader" style="color:white">CONTENT LINKS</h2>
+                <br />
+                <ul>
+                    <!--NEED TO REDIRECT ALL OF THESE CONTENT LINKS TO CORRECT PLACES ONCE THEY ARE ALL SET!!-->
+                    <li class="links">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="links">@Html.ActionLink("Service Delivery", "Index", "Home")</li>
+                    <li class="links">@Html.ActionLink("Corps Member Experience", "Index", "Home")</li>
+                    <li class="links">@Html.ActionLink("External Affairs", "Index", "Home")</li>
+                    <li class="links">@Html.ActionLink("Revenue", "Index", "Home")</li>
+                    <li class="links">@Html.ActionLink("OPEX", "Index", "Home")</li>
+                    <li class="links">@Html.ActionLink("RAD", "Index", "Home")</li>
+                </ul>
+                <br />
+                <u><h2>User Manual</h2></u>
+                <p style="font-style:italic;color:red;">Here is where the user manual will be located. COMING SOON!</p>
             </div>
         </div>
     </div>
-</body>
-
-</html>
+</div>
